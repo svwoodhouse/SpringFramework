@@ -2,6 +2,13 @@ package com.luv2code.springdemo;
 
 public class GamingCoach implements Coach
 {
+	public RandomFortuneService fortune;
+	
+	public GamingCoach(RandomFortuneService myFortune)
+	{
+		this.fortune = myFortune;
+	}
+	
 @Override
 	public String getDailyWorkout() 
 	{
@@ -9,9 +16,9 @@ public class GamingCoach implements Coach
 	}
 
 @Override
-public String getDailyFortune() {
-	// TODO Auto-generated method stub
-	return null;
+public String getDailyFortune() 
+{
+	return fortune.getFortune();
 }
 
 }
