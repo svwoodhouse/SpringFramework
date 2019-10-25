@@ -1,12 +1,16 @@
 package com.luv2code.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
+//Commenting out prototype scope due to @PreDestroy annotation does not work with a bean with the prototype scope
+//@Scope("prototype")
 public class TennisCoach implements Coach 
 {
 	@Autowired
@@ -18,6 +22,21 @@ public class TennisCoach implements Coach
 	{
 		System.out.println("TennisCoach : inside default constructor");
 	}
+	
+	// Define init method
+	@PostConstruct
+	public void doMyStartupStuff()
+	{
+		System.out.println("TennisCoach: inside of doMyStartupStuff()");
+	}
+	
+	// Define destroy method
+	@PreDestroy
+	public void doMyCleanupStuf()
+	{
+		System.out.println("TennisCoach: inside of doMyCleanupStuff()");
+	}
+	
 	// Method Injection Example
 	/*
 	@Autowired

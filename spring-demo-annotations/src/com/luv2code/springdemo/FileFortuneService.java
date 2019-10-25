@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class FileFortuneService implements FortuneService
 {
 	private List<String> fileFortunes;
-	private String file = "C:\\Users\\Sydnee\\eclipse-workspace\\spring-demo-annotations\\src\\com\\luv2code\\springdemo\\fortunes.txt";
+	private String file = "fortunes.txt";
 	private BufferedReader bf;
 	private String[] fortuneArray;
 	
